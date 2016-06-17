@@ -2,18 +2,20 @@
 #include <fstream>
 
 using namespace std;
-/*
+
 int main(){
+    int i = 0;
     while(1) {
+        i++;
         ofstream myfile;
         myfile.open("test.txt", std::ios_base::app);
-        myfile << "Hello World" << endl;
+        myfile << "yyy - " << i << " - Hello World" << endl;
         myfile.close();
     }
     return 0;
 }
-*/
 
+/*
 int main(){
     string s;
     cout << "Enter 'X' to write to the file" << endl;
@@ -28,4 +30,5 @@ int main(){
         }
     }
     return 0;
-}
+}*/
+
