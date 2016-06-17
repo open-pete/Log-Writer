@@ -45,8 +45,12 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Log-Writer/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../Log-Writer/main.cpp \
+		../Log-Writer/logwriter.cpp \
+		../Log-Writer/logw.cpp 
+OBJECTS       = main.o \
+		logwriter.o \
+		logw.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -99,7 +103,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../Log-Writer/Log-Writer.pro ../Log-Writer/main.cpp
+		../Log-Writer/Log-Writer.pro ../Log-Writer/main.cpp \
+		../Log-Writer/logwriter.cpp \
+		../Log-Writer/logw.cpp
 QMAKE_TARGET  = Log-Writer
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = Log-Writer
@@ -248,7 +254,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/Log-Writer1.0.0 || mkdir -p .tmp/Log-Writer1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/Log-Writer1.0.0/ && $(COPY_FILE) --parents ../Log-Writer/main.cpp .tmp/Log-Writer1.0.0/ && (cd `dirname .tmp/Log-Writer1.0.0` && $(TAR) Log-Writer1.0.0.tar Log-Writer1.0.0 && $(COMPRESS) Log-Writer1.0.0.tar) && $(MOVE) `dirname .tmp/Log-Writer1.0.0`/Log-Writer1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/Log-Writer1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/Log-Writer1.0.0/ && $(COPY_FILE) --parents ../Log-Writer/logwriter.h ../Log-Writer/logw.h .tmp/Log-Writer1.0.0/ && $(COPY_FILE) --parents ../Log-Writer/main.cpp ../Log-Writer/logwriter.cpp ../Log-Writer/logw.cpp .tmp/Log-Writer1.0.0/ && (cd `dirname .tmp/Log-Writer1.0.0` && $(TAR) Log-Writer1.0.0.tar Log-Writer1.0.0 && $(COMPRESS) Log-Writer1.0.0.tar) && $(MOVE) `dirname .tmp/Log-Writer1.0.0`/Log-Writer1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/Log-Writer1.0.0
 
 
 clean:compiler_clean 
@@ -285,8 +291,15 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../Log-Writer/main.cpp 
+main.o: ../Log-Writer/main.cpp ../Log-Writer/logwriter.h \
+		../Log-Writer/logw.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Log-Writer/main.cpp
+
+logwriter.o: ../Log-Writer/logwriter.cpp ../Log-Writer/logwriter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logwriter.o ../Log-Writer/logwriter.cpp
+
+logw.o: ../Log-Writer/logw.cpp ../Log-Writer/logw.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logw.o ../Log-Writer/logw.cpp
 
 ####### Install
 
