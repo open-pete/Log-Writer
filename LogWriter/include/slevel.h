@@ -1,6 +1,8 @@
 #ifndef SLEVEL_H
 #define SLEVEL_H
 
+class LogWriter;
+
 #include <string>
 #include "logwriter.h"
 using namespace std;

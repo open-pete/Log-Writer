@@ -12,11 +12,11 @@ string SLevel::severityLevelToString(SeverityLevel severityLevel_) const {
         case DEBUG      : return "DEBUG    "; break;
         default : return "";
     }
-};
+}
 
 LogWriter& operator<<(LogWriter& logWriter_, const SLevel severityLevel_) {
     logWriter_ << logWriter_.getTimeAsString() << " - ";
     logWriter_ << severityLevel_.getSeverityLevelAsString() << " - " ;
-    logWriter_ << logWriter_.getName() << " - ";
+    logWriter_ << logWriter_.getName() << " - " << flush;
     return logWriter_;
 }

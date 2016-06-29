@@ -1,8 +1,10 @@
-29/06/16-13:03:27 - ERROR     -  - Hallo Lw
-45
-29/06/16-13:04:01 - ERROR     - Application1 - Hallo Lw
-45
-29/06/16-13:05:25 - ERROR     - Application1 - Attention attention are error happend
-29/06/16-13:05:25 - INFO      - Application1 - Just for infomation the value was 45
-29/06/16-13:05:48 - ERROR     - Application1 - Attention attention are error happend
-29/06/16-13:05:48 - INFO      - Application1 - 45
+29/06/16-14:07:44 - ERROR     - Application1 - Attention attention are error happend
+29/06/16-14:07:44 - INFO      - Application1 - Just for infomation the value was 45
+29/06/16-14:19:11 - ERROR     - Application1 - Attention attention are error happend
+29/06/16-14:19:11 - INFO      - Application1 - Just for infomation the value was 45
+29/06/16-14:19:20 - ERROR     - Application1 - Attention attention are error happend
+29/06/16-14:19:20 - INFO      - Application1 - Just for infomation the value was 45
+29/06/16-14:35:50 - ERROR     - Application1 - Attention attention are error happend
+29/06/16-14:35:50 - INFO      - Application1 - Just for infomation the value was 45
+29/06/16-14:36:21 - ERROR     - Application1 - Attention attention are error happend
+29/06/16-14:36:21 - INFO      - Application1 - Just for infomation the value was 45
