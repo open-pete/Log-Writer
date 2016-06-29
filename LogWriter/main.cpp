@@ -2,6 +2,7 @@
 #include <ctime>
 
 #include "include/logwriter.h"
+#include "include/slevel.h"
 
 
 using namespace std;
@@ -9,11 +10,11 @@ using namespace std;
 int main()
 {
     cout << "Hello World" << endl;
-    LogWriter Lw("lwtest", "test.txt");
-    Lw.open("test.txt", std::ios_base::app);
+    LogWriter Lw("Application1", "Log.txt");
+    Lw.open("Log.txt", std::ios_base::app);
 
-    Lw << SLevel(ERROR) << "Hallo Lw" << endl;
-    //Lw << 45 << endl;
+    Lw << SLevel(ERROR) << "Attention attention are error happend" << endl;
+    Lw << SLevel(INFO) <<   45 << endl;
     Lw.close();
 
     return 0;

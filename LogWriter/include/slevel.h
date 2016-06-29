@@ -2,7 +2,7 @@
 #define SLEVEL_H
 
 #include <string>
-
+#include "logwriter.h"
 using namespace std;
 
 
@@ -44,17 +44,18 @@ class SLevel {
         SLevel(SeverityLevel severityLevel_) {
             severityLevel = severityLevel_;
         }
-        SeverityLevel getSeverityLevel() {
+        SeverityLevel getSeverityLevel() const {
             return severityLevel;
         }
-        string getSeverityLevelAsString() {
+        string getSeverityLevelAsString() const {
             return severityLevelToString(getSeverityLevel());
         }
+        friend LogWriter& operator<<(LogWriter& logWriter_, const SLevel severityLevel_);
 
 
     private:
         SeverityLevel severityLevel;
-        string severityLevelToString(SeverityLevel severityLevel_);
+        string severityLevelToString(SeverityLevel severityLevel_) const;
 };
 
 #endif // SLEVEL_H

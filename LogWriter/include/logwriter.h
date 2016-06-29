@@ -4,19 +4,19 @@
 #include <fstream>
 #include <string>
 #include <ctime>
-#include "slevel.h"
+//#include "slevel.h"
 
 using namespace std;
 
 class LogWriter : public ofstream {
     public:
         LogWriter(string name_, string path_);
-        LogWriter& operator<<(SLevel severityLevel_);
+        //LogWriter& operator<<(SLevel severityLevel_);
         string getName() { return name; };
-
+        string getTimeAsString();
     private:
         void writeLogPrefix();
-        string getTimeAsString();
+
         string name;
         string path;
 

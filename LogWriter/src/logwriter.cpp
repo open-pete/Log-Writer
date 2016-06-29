@@ -5,12 +5,13 @@ LogWriter::LogWriter(string name_, string path_){
    path = path_;
 }
 
+/*
 LogWriter& LogWriter::operator<<(SLevel severityLevel_) {
     *this << getTimeAsString() << " - ";
     *this << severityLevel_.getSeverityLevelAsString() << " - " ;
     *this << getName() << " - ";
     return *this;
-}
+}*/
 
 string LogWriter::getTimeAsString() {
     time_t rawtime;
