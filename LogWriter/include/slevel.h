@@ -1,12 +1,21 @@
+/**
+ * slevel.cpp
+ * Purpose: define class SLevel and enum SeverityLevel
+ *
+ * @author Wall.Of.Death
+ * @version 1.0 20160629
+ */
+
 #ifndef SLEVEL_H
 #define SLEVEL_H
 
+// declare class LogWriter for to avoid include problems
 class LogWriter;
 
 #include <string>
 #include "logwriter.h"
-using namespace std;
 
+using namespace std;
 
 /**
  * @brief The SeverityLevel enum
@@ -40,18 +49,22 @@ using namespace std;
  */
 enum SeverityLevel {EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFO, DEBUG};
 
-
+/**
+ * @brief The SLevel class
+ *
+ * SLevel class is a wrapper class, which wrapps the SeverityLevel enum.
+ * This is necessary because it is not possible to overload the << operator for an enum.
+ */
 class SLevel {
     public:
-        SLevel(SeverityLevel severityLevel_) {
-            severityLevel = severityLevel_;
-        }
-        SeverityLevel getSeverityLevel() const {
-            return severityLevel;
-        }
-        string getSeverityLevelAsString() const {
-            return severityLevelToString(getSeverityLevel());
-        }
+        // constructor
+        SLevel(SeverityLevel severityLevel_)      { severityLevel = severityLevel_;                    }
+
+        // getters
+        SeverityLevel getSeverityLevel  () const  { return severityLevel;                              }
+        string getSeverityLevelAsString () const  { return severityLevelToString(getSeverityLevel());  }
+
+        // operators
         friend LogWriter& operator<<(LogWriter& logWriter_, const SLevel severityLevel_);
 
 

@@ -1,5 +1,5 @@
 /**
- * LogWriter.h
+ * logwriter.h
  * Purpose: defines class LogWriter
  *
  * @author Wall.Of.Death
@@ -35,14 +35,14 @@ using namespace std;
  *
  * int main() {
  *     LogWriter Lw("Application1", "Log.txt");
- *     Lw << SLevel(ERROR) << "Attention attention a error happend" << endl;
+ *     Lw << SLevel(ERROR) << "Attention attention an error happend" << endl;
  *     Lw << SLevel(INFO) <<  "Just for infomation the value was " << 45 << endl;
  *
  *     return 0;
  * }
  *
  * Output (Log.txt)
- *   29/06/16-14:50:47 - ERROR     - Application1 - Attention attention a error happend
+ *   29/06/16-14:50:47 - ERROR     - Application1 - Attention attention an error happend
  *   29/06/16-14:50:47 - INFO      - Application1 - Just for infomation the value was 45
  */
 class LogWriter : public ofstream {

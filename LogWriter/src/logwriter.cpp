@@ -1,5 +1,5 @@
 /**
- * LogWriter.cpp
+ * logwriter.cpp
  * Purpose: implements class LogWriter
  *
  * @author Wall.Of.Death
@@ -7,7 +7,6 @@
  */
 
 #include "../include/logwriter.h"
-#include <iostream>
 
 using namespace std;
 

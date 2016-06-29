@@ -12,3 +12,7 @@
 29/06/16-14:52:07 - INFO      - Application1 - Just for infomation the value was 45
 29/06/16-14:52:16 - ERROR     - Application1 - Attention attention a error happend
 29/06/16-14:52:16 - INFO      - Application1 - Just for infomation the value was 45
+29/06/16-14:59:37 - ERROR     - Application1 - Attention attention a error happend
+29/06/16-14:59:37 - INFO      - Application1 - Just for infomation the value was 45
+29/06/16-15:23:00 - ERROR     - Application1 - Attention attention an error happend
+29/06/16-15:23:00 - INFO      - Application1 - Just for infomation the value was 45
