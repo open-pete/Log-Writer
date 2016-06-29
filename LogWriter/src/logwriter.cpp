@@ -45,6 +45,6 @@ string LogWriter::getTimeAsString() {
 
     // time_struct-->string
     // returns string like 29/06/16-11:15:10
-    strftime (buffer,sizeOf(buffer),"%d/%m/%y-%T",timeinfo);
+    strftime (buffer,sizeof(buffer),"%d/%m/%y-%T",timeinfo);
     return buffer;
 }
