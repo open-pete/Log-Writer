@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-06-17T10:27:01
+# Project created by QtCreator 2016-06-29T11:33:41
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core
 
 QT       -= gui
 
-TARGET = Log-Writer
+TARGET = LogWriter
 CONFIG   += console
 CONFIG   -= app_bundle
 
@@ -16,9 +16,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    logwriter.cpp \
-    logw.cpp
+    src/logwriter.cpp \
+    src/slevel.cpp
 
 HEADERS += \
-    logwriter.h \
-    logw.h
+    include/logwriter.h \
+    include/slevel.h
