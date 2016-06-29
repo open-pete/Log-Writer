@@ -20,7 +20,7 @@
     	- right : getAddress(int **p**ostCode_)
     	- wrong : getAddress(int **P**ostCode_)
 
-- Names of **Classes, Contructors and Destructors** always start with a capital letter:
+- Names of **Classes, Enums, Structs, Contructors and Destructors** always start with a capital letter:
 	- right :
 
 ```
@@ -87,7 +87,7 @@ class car {
 ##Declaration and implementation
 - every class, with all his functions and attributes is declarated in a header-file
 - all functions except for getters and setters are implemented in a *.cpp - file
-- all structs and constants are defined in the Types.h - file
+- if structs and constants do not directly belong to a class define them in the Types.h - file
 
 ##OOP (object - oriented - programming)
 - Information - hiding

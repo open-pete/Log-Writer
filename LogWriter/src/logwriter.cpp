@@ -35,15 +35,15 @@ LogWriter::LogWriter(string name_, string path_){
  * time refers to timezone of the local machine
  */
 string LogWriter::getTimeAsString() {
-    time_t rawtime;       // create time_t
-    struct tm * timeinfo; // create time pointer
-    char buffer [80]; // create buffer for string
+    time_t rawtime;                // create time_t
+    struct tm *structTimezoneTime; // create time pointer
+    char buffer[80];               // create buffer for string
 
-    time (&rawtime);  // get current time into rawtime (seconds since 1970)
-    timeinfo = localtime (&rawtime); // transform rawtime by timezone to localtime
+    time(&rawtime);  // get current time into rawtime (seconds since 1970)
+    structTimezoneTime = localtime(&rawtime); // transform rawtime by timezone to localtime
 
     // time_struct-->string
     // returns string like 29/06/16-11:15:10
-    strftime (buffer,sizeof(buffer),"%d/%m/%y-%T",timeinfo);
+    strftime (buffer,sizeof(buffer),"%d/%m/%y-%T",structTimezoneTime);
     return buffer;
 }
