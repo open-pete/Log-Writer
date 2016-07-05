@@ -24,9 +24,9 @@ using namespace std;
  *  Val | Severity      | Description             | Examples
  *  ------------------------------------------------------------------------------
  *   0  | Emergency     | System  is  unusable    | This  level  should  not
- *   1  | Alert         | Should  be  corrected   | be  used  by  applications.
- *      |               | immediately             | Loss  of  the  primary  ISP
- *      |	            |			              | connection.
+ *      |               |                         | be  used  by  applications.
+ *   1  | Alert         | Should  be  corrected   | Loss  of  the  primary  ISP
+ *      |               | immediately             | connection.
  *   2  | Critical      | Critical  conditions    | A  failure  in  the  system's
  *      |               |                         | primary  application.
  *   3  | Error         | Error  conditions       | An  application  has  exceeded

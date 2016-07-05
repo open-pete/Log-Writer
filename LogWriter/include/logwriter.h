@@ -47,9 +47,20 @@ using namespace std;
  */
 class LogWriter : public ofstream {
     public:
-        LogWriter(string name_, string path_);
+        /* --- constructors --- */
+        LogWriter() {};                         // standard-constructor
+        LogWriter(string name_, string path_);  //          constructor
+        LogWriter(const LogWriter& logWriter_); //     copy-constructor
+
+        /* --- operator --- */
+        LogWriter& operator=(const LogWriter& logWriter_);
+        bool operator==(const LogWriter& logWriter_) const;
+        bool operator!=(const LogWriter& logWriter_) const;
+
+        /* --- miscellaneous --- */
         string getName() { return name; };
         string getTimeAsString();
+
     private:
         string name;
         string path;
