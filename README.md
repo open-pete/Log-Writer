@@ -1,5 +1,5 @@
 # Log-Writer
-==C++ implementation is a lightweight implementation for writing log-files.==
+==Log-Writer is a lightweight c++-implementation for writing log-files.==
 The path of the log-file is set by the constructor.
 The application which uses the LogWriter has to use a different
 name in the constructor.
