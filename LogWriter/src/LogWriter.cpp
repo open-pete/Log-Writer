@@ -1,12 +1,12 @@
 /**
- * logwriter.cpp
+ * LogWriter.cpp
  * Purpose: implements class LogWriter
  *
  * @author Wall.Of.Death
  * @version 1.0 20160629
  */
 
-#include "../include/logwriter.h"
+#include "../include/LogWriter.h"
 
 using namespace std;
 
@@ -58,6 +58,7 @@ LogWriter& LogWriter::operator=(const LogWriter& logWriter_) {
     // open file and append everything to the content which is already in the file
     open(path.c_str(), std::ios_base::app);
 
+    return *this;
 }
 
 /**

@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../LogWriter -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I.
+INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../LogWriter -I../LogWriter/include -I../include/ -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I.
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -lQt5Core -lpthread 
@@ -46,11 +46,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../LogWriter/main.cpp \
-		../LogWriter/src/logwriter.cpp \
-		../LogWriter/src/slevel.cpp 
+		../LogWriter/src/LogWriter.cpp \
+		../LogWriter/src/SLevel.cpp 
 OBJECTS       = main.o \
-		logwriter.o \
-		slevel.o
+		LogWriter.o \
+		SLevel.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -78,6 +78,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -104,8 +108,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../LogWriter/LogWriter.pro ../LogWriter/main.cpp \
-		../LogWriter/src/logwriter.cpp \
-		../LogWriter/src/slevel.cpp
+		../LogWriter/src/LogWriter.cpp \
+		../LogWriter/src/SLevel.cpp
 QMAKE_TARGET  = LogWriter
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = LogWriter
@@ -165,6 +169,10 @@ Makefile: ../LogWriter/LogWriter.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -220,6 +228,10 @@ Makefile: ../LogWriter/LogWriter.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
@@ -254,7 +266,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/LogWriter1.0.0 || mkdir -p .tmp/LogWriter1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/LogWriter1.0.0/ && $(COPY_FILE) --parents ../LogWriter/include/logwriter.h ../LogWriter/include/slevel.h .tmp/LogWriter1.0.0/ && $(COPY_FILE) --parents ../LogWriter/main.cpp ../LogWriter/src/logwriter.cpp ../LogWriter/src/slevel.cpp .tmp/LogWriter1.0.0/ && (cd `dirname .tmp/LogWriter1.0.0` && $(TAR) LogWriter1.0.0.tar LogWriter1.0.0 && $(COMPRESS) LogWriter1.0.0.tar) && $(MOVE) `dirname .tmp/LogWriter1.0.0`/LogWriter1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/LogWriter1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/LogWriter1.0.0/ && $(COPY_FILE) --parents ../LogWriter/include/LogWriter.h ../LogWriter/include/SLevel.h .tmp/LogWriter1.0.0/ && $(COPY_FILE) --parents ../LogWriter/main.cpp ../LogWriter/src/LogWriter.cpp ../LogWriter/src/SLevel.cpp .tmp/LogWriter1.0.0/ && (cd `dirname .tmp/LogWriter1.0.0` && $(TAR) LogWriter1.0.0.tar LogWriter1.0.0 && $(COMPRESS) LogWriter1.0.0.tar) && $(MOVE) `dirname .tmp/LogWriter1.0.0`/LogWriter1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/LogWriter1.0.0
 
 
 clean:compiler_clean 
@@ -291,16 +303,17 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../LogWriter/main.cpp ../LogWriter/include/logwriter.h \
-		../LogWriter/include/slevel.h
+main.o: ../LogWriter/main.cpp ../LogWriter/include/LogWriter.h \
+		../LogWriter/include/SLevel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../LogWriter/main.cpp
 
-logwriter.o: ../LogWriter/src/logwriter.cpp ../LogWriter/include/logwriter.h \
-		../LogWriter/include/slevel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logwriter.o ../LogWriter/src/logwriter.cpp
+LogWriter.o: ../LogWriter/src/LogWriter.cpp ../LogWriter/include/LogWriter.h \
+		../LogWriter/include/SLevel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LogWriter.o ../LogWriter/src/LogWriter.cpp
 
-slevel.o: ../LogWriter/src/slevel.cpp ../LogWriter/include/slevel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o slevel.o ../LogWriter/src/slevel.cpp
+SLevel.o: ../LogWriter/src/SLevel.cpp ../LogWriter/include/SLevel.h \
+		../LogWriter/include/LogWriter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SLevel.o ../LogWriter/src/SLevel.cpp
 
 ####### Install
 

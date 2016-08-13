@@ -14,11 +14,14 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
+INCLUDEPATH += include/
+INCLUDEPATH += ../include/
+
 
 SOURCES += main.cpp \
-    src/logwriter.cpp \
-    src/slevel.cpp
+    src/LogWriter.cpp \
+    src/SLevel.cpp
 
 HEADERS += \
-    include/logwriter.h \
-    include/slevel.h
+    include/LogWriter.h \
+    include/SLevel.h
