@@ -1,5 +1,6 @@
 # Log-Writer
-==Log-Writer is a lightweight c++-implementation for writing log-files.==
+Log-Writer is a lightweight c++-implementation for writing log-files.
+
 The path of the log-file is set by the constructor.
 The application which uses the LogWriter has to use a different
 name in the constructor.
@@ -44,6 +45,6 @@ int main() {
 29/06/16-14:50:47 - ERROR     - Application1 - Attention attention an error happend
 29/06/16-14:50:47 - INFO      - Application1 - Just for infomation the value was 45
 ```
-##!Attention!
+## !Attention!
 Please note that this project is developed as a C++ - beginner - project.
 Therefore the design, syntax and the programming style might not be perfect.
