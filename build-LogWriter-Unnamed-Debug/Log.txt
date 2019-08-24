@@ -1,2 +1,0 @@
-13/08/16-13:18:46 - ERROR     - Application1 - Attention attention an error happend
-13/08/16-13:18:46 - INFO      - Application1 - Just for infomation the value was 45
